@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import EventService from "@/services/EventService";
 
 Vue.use(Vuex);
 
@@ -15,21 +16,20 @@ export default new Vuex.Store({
       'food',
       'community'
     ],
-    todos: [
-      {id:1, text: '.....', done: true},
-      {id:1, text: '.....', done: false},
-      {id:1, text: '.....', done: true},
-      {id:1, text: '.....', done: true},
-    ],
-    events: [
-      {id:1, title: '.....', organizer: true},
-      {id:2, title: '.....', organizer: true},
-      {id:3, title: '.....', organizer: true},
-      {id:4, title: '.....', organizer: true},
-    ]
+    events: []
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    ADD_EVENT(state, event) {
+      state.events.push(event)
+    }
+  },
+  actions: {
+    createEvent({ commit }, event) {
+      return EventService.postEvent(event).then( () => {
+        commit('ADD_EVENT', event)
+      })
+    }
+  },
   getters: {
     catLength: state => {
       return state.categories.length
