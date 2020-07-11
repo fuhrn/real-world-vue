@@ -92,6 +92,42 @@
       "date": "2020-07-11T22:30:00.000Z",
       "time": "15:00",
       "attendees": []
+    },
+    {
+      "id": 4034878,
+      "user": {
+        "id": "abc123",
+        "name": "Nestor Fuhr"
+      },
+      "category": "education",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "learning Vue",
+      "description": "Vue Mastery",
+      "location": "Don Torcuato",
+      "date": "2020-07-11T22:30:00.000Z",
+      "time": "15:00",
+      "attendees": []
+    },
+    {
+      "id": 1690421,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "education",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "probando",
+      "description": "nuevo evento",
+      "location": "Tigre",
+      "date": "2020-07-02T23:41:00.000Z",
+      "time": "22:00",
+      "attendees": []
     }
   ]
 }
