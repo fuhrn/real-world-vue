@@ -59,12 +59,14 @@ export const actions = {
 
         if (event) {
             commit('SET_EVENT', event)
+            // clase 4 agregamos return para que el promise funcione en router/index.js
+            return event
         } else {
-            // clase 3
+            // clase 4 agregamos return para que el promise funcione en router/index.js
             return EventService.getEvent(id)// agregue return
-            // EventService.getEvent(id)
                 .then(response => {
                     commit('SET_EVENT', response.data)
+                    return response.data
                 })
                 .catch(error => {
                     const notification = {
