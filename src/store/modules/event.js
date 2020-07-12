@@ -60,7 +60,9 @@ export const actions = {
         if (event) {
             commit('SET_EVENT', event)
         } else {
-            EventService.getEvent(id)
+            // clase 3
+            return EventService.getEvent(id)// agregue return
+            // EventService.getEvent(id)
                 .then(response => {
                     commit('SET_EVENT', response.data)
                 })
