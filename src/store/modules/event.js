@@ -8,6 +8,7 @@ export const state = {
     event: {},
     perPage: 3
 }
+
 export const mutations = {
     ADD_EVENT(state, event) {
         state.events.push(event)
@@ -22,25 +23,29 @@ export const mutations = {
         state.event = event
     }
 }
+
 export const actions = {
     createEvent({commit, dispatch}, event) {
-        return EventService.postEvent(event).then(() => {
-        commit('ADD_EVENT', event)
-            const notification = {
-                type: 'success',
-                message: 'Your event has been created!'
-            }
-            dispatch('notification/add', notification, {root: true})
-        }).catch(error => {
-            const notification = {
-                type: 'error',
-                message: 'There was a problem creating your event: ' + error.message
-            }
-            dispatch('notification/add', notification, {root: true})
-            throw error
-        })
+        return EventService.postEvent(event)
+            .then(() => {
+                commit('ADD_EVENT', event)
+                commit('SET_EVENT', event)
+                const notification = {
+                    type: 'success',
+                    message: 'Your event has been created!'
+                }
+                dispatch('notification/add', notification, {root: true})
+            })
+            .catch(error => {
+                const notification = {
+                    type: 'error',
+                    message: 'There was a problem creating your event: ' + error.message
+                }
+                dispatch('notification/add', notification, {root: true})
+                throw error
+            })
     },
-    fetchEvents({commit, dispatch, state}, {page}) {
+    fetchEvents({ commit, dispatch, state }, { page }) {
         return EventService.getEvents(state.perPage, page)
             .then(response => {
                 commit('SET_EVENTS_TOTAL', parseInt(response.headers['x-total-count']))
@@ -51,30 +56,27 @@ export const actions = {
                     type: 'error',
                     message: 'There was a problem fetching events: ' + error.message
                 }
-                dispatch('notification/add', notification, {root: true})
+                dispatch('notification/add', notification, { root: true })
             })
     },
     fetchEvent({commit, getters, state}, id) {
         if (id == state.event.id) {
             return state.event
         }
+
         var event = getters.getEventById(id)
 
         if (event) {
             commit('SET_EVENT', event)
-            // clase 4 agregamos return para que el promise funcione en router/index.js
             return event
         } else {
-            // clase 4 agregamos return para que el promise funcione en router/index.js
-            return EventService.getEvent(id)// agregue return
-                .then(response => {
-                    commit('SET_EVENT', response.data)
-                    return response.data
-                })
+            return EventService.getEvent(id).then(response => {
+                commit('SET_EVENT', response.data)
+                return response.data
+            })
         }
     }
 }
-
 export const getters = {
     getEventById: state => id => {
         return state.events.find(event => event.id === id)
