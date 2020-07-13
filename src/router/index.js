@@ -16,6 +16,12 @@ const routes = [
         path: "/",
         name: "event-list",
         component: EventList,
+        props: true
+    },
+    {
+        path: '/event/create',
+        name: 'event-create',
+        component: EventCreate
     },
     {
         path: "/example",
@@ -56,11 +62,6 @@ const routes = [
         path: '*',
         redirect: { name: '404', params: {resource: 'event'} }
     },
-    {
-        path: "/event/create",
-        name: "event-create",
-        component: EventCreate
-    }
 ];
 
 const router = new VueRouter({

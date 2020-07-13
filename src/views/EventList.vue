@@ -4,18 +4,21 @@
         <EventCard v-for="event in event.events" :key="event.id" :event="event"/>
         <template v-if="page != 1">
             <router-link :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev">
-                Prev Page</router-link>
-            <template v-if="hasNextPage"> | </template>
+                Prev Page
+            </router-link>
+            <template v-if="hasNextPage"> |</template>
         </template>
         <router-link v-if="hasNextPage" :to="{ name: 'event-list', query: { page: page + 1 } }" rel="next">
-            Next Page</router-link>
+            Next Page
+        </router-link>
     </div>
 </template>
 
 <script>
     import EventCard from '@/components/EventCard.vue'
-    import { mapState } from 'vuex'
+    import {mapState} from 'vuex'
     import store from '@/store/index'
+
     function getPageEvents(routeTo, next) {
         const currentPage = parseInt(routeTo.query.page) || 1
         store
@@ -27,6 +30,7 @@
                 next()
             })
     }
+
     export default {
         props: {
             page: {
