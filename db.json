@@ -402,6 +402,72 @@
         "isTrusted": true
       },
       "attendees": []
+    },
+    {
+      "id": 7251039,
+      "user": {
+        "id": "abc123",
+        "name": "Nestor"
+      },
+      "category": {
+        "isTrusted": true
+      },
+      "organizer": {
+        "id": "abc123",
+        "name": "Nestor"
+      },
+      "title": "titulo",
+      "description": "descripcion",
+      "location": "don torcuato",
+      "date": "2020-07-01T13:49:00.000Z",
+      "time": {
+        "isTrusted": true
+      },
+      "attendees": []
+    },
+    {
+      "id": 8271383,
+      "user": {
+        "id": "abc123",
+        "name": "Nestor"
+      },
+      "category": {
+        "isTrusted": true
+      },
+      "organizer": {
+        "id": "abc123",
+        "name": "Nestor"
+      },
+      "title": "titulo",
+      "description": "descripcion",
+      "location": "don torcuato",
+      "date": "2020-07-01T13:59:00.000Z",
+      "time": {
+        "isTrusted": true
+      },
+      "attendees": []
+    },
+    {
+      "id": 7834301,
+      "user": {
+        "id": "abc123",
+        "name": "Nestor"
+      },
+      "category": {
+        "isTrusted": true
+      },
+      "organizer": {
+        "id": "abc123",
+        "name": "Nestor"
+      },
+      "title": "aaa",
+      "description": "sss",
+      "location": "ddd",
+      "date": "2020-07-02T16:00:00.000Z",
+      "time": {
+        "isTrusted": true
+      },
+      "attendees": []
     }
   ]
 }
