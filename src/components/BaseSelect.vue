@@ -5,7 +5,7 @@
                 :value="value"
                 @input="updateValue"
                 v-bind="$attrs"
-                v-on="$listeners"
+                v-on="listeners"
         >
             <option
                     v-for="option in options"
@@ -30,6 +30,14 @@
                 type: String,
                 default: ''
             },
+        },
+        computed: {
+            listeners() {
+                return {
+                    ...this.$listeners,
+                    input: this.updateValue
+                }
+            }
         }
     }
 </script>
