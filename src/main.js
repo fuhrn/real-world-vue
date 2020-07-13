@@ -6,6 +6,9 @@ import router from "./router";
 import store from "./store";
 import 'nprogress/nprogress.css';
 import Vuelidate from "vuelidate/src";
+import DateFilter from "./filters/date";
+
+Vue.filter('date', DateFilter)
 
 const requireComponent = require.context(
     './components',
